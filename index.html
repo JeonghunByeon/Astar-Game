@@ -3,10 +3,1179 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Astar - Press Kit</title>
+    <title>OLLIM — Official Press Kit | Team ASTAR</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap');
+
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0a0e1a;
+            --bg-secondary: #111827;
+            --bg-card: #1a2035;
+            --accent: #3b82f6;
+            --accent-glow: #60a5fa;
+            --accent-dark: #1e3a5f;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --border: #1e293b;
+            --gold: #f59e0b;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* ── Starfield Background ── */
+        .starfield {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle var(--duration) ease-in-out infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.1; }
+            50% { opacity: var(--max-opacity); }
+        }
+
+        /* ── Navigation ── */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            background: rgba(10, 14, 26, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        nav .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.8rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        nav .nav-logo {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--accent-glow);
+            letter-spacing: 3px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-glow);
+        }
+
+        /* ── Hero Section ── */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-logo {
+            width: 160px;
+            height: 160px;
+            margin-bottom: 1.5rem;
+            filter: brightness(1.2) drop-shadow(0 0 30px rgba(59, 130, 246, 0.4));
+            animation: float 4s ease-in-out infinite;
+            position: relative;
+            z-index: 2;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+
+        .hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 900;
+            letter-spacing: 12px;
+            background: linear-gradient(135deg, #fff 0%, var(--accent-glow) 50%, #fff 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 3s linear infinite;
+            position: relative;
+            z-index: 2;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: 0% center; }
+            100% { background-position: 200% center; }
+        }
+
+        .hero .tagline {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-top: 1rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero .character-sprite {
+            margin-top: 2.5rem;
+            image-rendering: pixelated;
+            width: 128px;
+            height: 128px;
+            position: relative;
+            z-index: 2;
+            filter: drop-shadow(0 0 12px rgba(59, 130, 246, 0.5));
+        }
+
+        .hero .scroll-hint {
+            position: absolute;
+            bottom: 2rem;
+            animation: bounce 2s ease-in-out infinite;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); opacity: 0.5; }
+            50% { transform: translateY(8px); opacity: 1; }
+        }
+
+        /* ── Section Styles ── */
+        section {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .section-title::before {
+            content: '//';
+            color: var(--accent);
+            margin-right: 0.75rem;
+        }
+
+        .section-line {
+            width: 60px;
+            height: 3px;
+            background: var(--accent);
+            margin-bottom: 2.5rem;
+            border-radius: 2px;
+        }
+
+        /* ── Quick Facts ── */
+        .quick-facts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .fact-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .fact-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(59, 130, 246, 0.1);
+        }
+
+        .fact-card .label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent-glow);
+            margin-bottom: 0.5rem;
+        }
+
+        .fact-card .value {
+            font-size: 1.05rem;
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .fact-card .value a {
+            color: var(--accent-glow);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.3s;
+        }
+
+        .fact-card .value a:hover {
+            border-bottom-color: var(--accent-glow);
+        }
+
+        /* ── Features ── */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.2rem;
+            margin-top: 1.5rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+            padding: 1rem 1.2rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            transition: border-color 0.3s;
+        }
+
+        .feature-item:hover {
+            border-color: var(--accent);
+        }
+
+        .feature-item .icon {
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .feature-item span {
+            font-size: 0.95rem;
+        }
+
+        /* ── Divider with Boss ── */
+        .boss-divider {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            padding: 6rem 0;
+            overflow: hidden;
+        }
+
+        .boss-divider::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: linear-gradient(
+                180deg,
+                var(--bg-primary) 0%,
+                rgba(10, 14, 26, 0.3) 30%,
+                rgba(10, 14, 26, 0.3) 70%,
+                var(--bg-primary) 100%
+            );
+            z-index: 1;
+        }
+
+        .boss-bg-img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            max-width: 900px;
+            opacity: 0.2;
+            filter: blur(2px);
+        }
+
+        .boss-divider .content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .boss-divider .content h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            font-weight: 700;
+            letter-spacing: 6px;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .boss-divider .content p {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        /* ── Video Section ── */
+        .video-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+        }
+
+        .video-block {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .video-block video {
+            width: 100%;
+            display: block;
+        }
+
+        .video-block .video-info {
+            padding: 1.5rem;
+        }
+
+        .video-block .video-info h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            margin-bottom: 0.4rem;
+        }
+
+        .video-block .video-info p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .video-pair {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+        }
+
+        /* ── Description Section ── */
+        .description-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .description-text p {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .description-sidebar {
+            position: sticky;
+            top: 100px;
+        }
+
+        .character-showcase {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .character-showcase .sprite-large {
+            image-rendering: pixelated;
+            width: 192px;
+            height: 192px;
+            margin: 0 auto 1rem;
+            filter: drop-shadow(0 0 16px rgba(59, 130, 246, 0.3));
+        }
+
+        .character-showcase h4 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        .character-showcase p {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        /* ── Boss Gallery ── */
+        .boss-showcase {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .boss-showcase img {
+            width: 100%;
+            border-radius: 16px;
+            filter: drop-shadow(0 10px 40px rgba(59, 130, 246, 0.2));
+        }
+
+        .boss-info h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.4rem;
+            letter-spacing: 3px;
+            margin-bottom: 1rem;
+            color: var(--accent-glow);
+        }
+
+        .boss-info p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        /* ── Team Section ── */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .team-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .team-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .team-card .role {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent-glow);
+            margin-bottom: 0.3rem;
+        }
+
+        .team-card .name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .team-card .contact {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .team-card .contact a {
+            color: var(--accent-glow);
+            text-decoration: none;
+        }
+
+        /* ── System Requirements ── */
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .spec-block {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+        }
+
+        .spec-block h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            color: var(--accent-glow);
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .spec-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.4rem 0;
+            font-size: 0.9rem;
+        }
+
+        .spec-row .spec-label {
+            color: var(--text-muted);
+        }
+
+        .spec-row .spec-value {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        /* ── CTA Section ── */
+        .cta-section {
+            text-align: center;
+            padding: 6rem 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-section h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(1.5rem, 4vw, 2.2rem);
+            letter-spacing: 4px;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            line-height: 1.8;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.9rem 2.2rem;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-glow);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(59, 130, 246, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--accent);
+            color: var(--accent-glow);
+            transform: translateY(-2px);
+        }
+
+        /* ── Footer ── */
+        footer {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        footer .footer-logo {
+            width: 40px;
+            margin-bottom: 1rem;
+            opacity: 0.6;
+            filter: brightness(1.5);
+        }
+
+        /* ── Animations ── */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 900px) {
+            nav ul { display: none; }
+
+            .description-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .description-sidebar {
+                position: static;
+            }
+
+            .boss-showcase {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .video-pair {
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .quick-facts {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .boss-animations {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 3rem 1.2rem;
+            }
+        }
+
+        /* ── Boss Animations ── */
+        .boss-animations {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .boss-anim-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: border-color 0.3s;
+        }
+
+        .boss-anim-card:hover {
+            border-color: var(--accent);
+        }
+
+        .boss-anim-card img {
+            width: 100%;
+            max-width: 280px;
+            aspect-ratio: 4/3;
+            object-fit: contain;
+            filter: drop-shadow(0 0 12px rgba(59, 130, 246, 0.2));
+        }
+
+        .boss-anim-card h4 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            color: var(--accent-glow);
+            margin-top: 1rem;
+        }
+
+        /* ── CTA Bonfire Sprite Animation ── */
+        .cta-bonfire {
+            width: 150px;
+            height: 168px;
+            margin: 0 auto 1.5rem;
+            background: url('assets/images/bonfire.png') 0 0 no-repeat;
+            background-size: 750px 840px;
+            cursor: pointer;
+            transition: filter 0.3s;
+        }
+
+        .cta-bonfire:hover {
+            filter: brightness(1.2);
+        }
+
+        .cta-bonfire.playing {
+            animation: bonfire-play 2.5s steps(1) forwards;
+            filter: drop-shadow(0 0 20px rgba(245, 158, 11, 0.5));
+        }
+
+        .cta-bonfire-hint {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+            transition: opacity 0.5s;
+        }
+
+        @keyframes bonfire-play {
+            0%      { background-position: 0px 0px; }
+            4%      { background-position: -150px 0px; }
+            8%      { background-position: -300px 0px; }
+            12%     { background-position: -450px 0px; }
+            16%     { background-position: -600px 0px; }
+            20%     { background-position: 0px -168px; }
+            24%     { background-position: -150px -168px; }
+            28%     { background-position: -300px -168px; }
+            32%     { background-position: -450px -168px; }
+            36%     { background-position: -600px -168px; }
+            40%     { background-position: 0px -336px; }
+            44%     { background-position: -150px -336px; }
+            48%     { background-position: -300px -336px; }
+            52%     { background-position: -450px -336px; }
+            56%     { background-position: -600px -336px; }
+            60%     { background-position: 0px -504px; }
+            64%     { background-position: -150px -504px; }
+            68%     { background-position: -300px -504px; }
+            72%     { background-position: -450px -504px; }
+            76%     { background-position: -600px -504px; }
+            80%     { background-position: 0px -672px; }
+            84%     { background-position: -150px -672px; }
+            88%     { background-position: -300px -672px; }
+            92%     { background-position: -450px -672px; }
+            96%     { background-position: -600px -672px; }
+        }
+
+        /* ── Footer Logos ── */
+        .footer-logos {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .digipen-logo {
+            width: 160px !important;
+            height: auto !important;
+        }
+
+        /* ── Placeholder highlight ── */
+        .placeholder {
+            color: var(--gold);
+            font-style: italic;
+        }
+    </style>
 </head>
 <body>
-    <h1>🚀 Astar Press Kit - Coming Soon!</h1>
-    <p>GitHub Pages is working correctly.</p>
+
+<!-- Starfield -->
+<div class="starfield" id="starfield"></div>
+
+<!-- Navigation -->
+<nav>
+    <div class="nav-inner">
+        <div class="nav-logo">ASTAR</div>
+        <ul>
+            <li><a href="#facts">Facts</a></li>
+            <li><a href="#trailer">Trailer</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#gameplay">Gameplay</a></li>
+            <li><a href="#boss">Boss</a></li>
+            <li><a href="#team">Team</a></li>
+            <li><a href="#download">Press</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Hero -->
+<header class="hero">
+    <img src="assets/images/TeamLogo.png" alt="Astar Team Logo" class="hero-logo">
+    <h1>OLLIM</h1>
+    <p class="tagline">Raise the fallen constellations back to the sky with the power of starlight.</p>
+    <img id="hero-sprite" class="character-sprite" src="assets/sprites/Player_idel1.png" alt="Player Character">
+    <div class="scroll-hint">Scroll to Explore</div>
+</header>
+
+<!-- Quick Facts -->
+<section id="facts" class="fade-in">
+    <h2 class="section-title">Quick Facts</h2>
+    <div class="section-line"></div>
+    <div class="quick-facts">
+        <div class="fact-card">
+            <div class="label">Game Title</div>
+            <div class="value">OLLIM</div>
+        </div>
+        <div class="fact-card">
+            <div class="label">Genre</div>
+            <div class="value">2D Action / Platformer / Metroidvania / Boss Rush</div>
+        </div>
+        <div class="fact-card">
+            <div class="label">Developer</div>
+            <div class="value">Team ASTAR<br>DigiPen Institute of Technology</div>
+        </div>
+        <div class="fact-card">
+            <div class="label">Contact</div>
+            <div class="value"><a href="mailto:byeonjeonghun93@gmail.com">byeonjeonghun93@gmail.com</a></div>
+        </div>
+        <div class="fact-card">
+            <div class="label">Engine</div>
+            <div class="value">Custom Engine / OpenGL</div>
+        </div>
+    </div>
+</section>
+
+<!-- Features -->
+<section class="fade-in">
+    <h2 class="section-title">Features</h2>
+    <div class="section-line"></div>
+    <div class="features-grid">
+        <div class="feature-item">
+            <span class="icon">&#9876;</span>
+            <span>Combat without attacking — survive, dodge, and outmaneuver your foes</span>
+        </div>
+        <div class="feature-item">
+            <span class="icon">&#128126;</span>
+            <span>Fast-paced boss rush encounters that demand precision and quick reflexes</span>
+        </div>
+        <div class="feature-item">
+            <span class="icon">&#127926;</span>
+            <span>Original soundtrack composed to match every moment of the journey</span>
+        </div>
+    </div>
+</section>
+
+<!-- Trailer -->
+<section id="trailer" class="fade-in">
+    <h2 class="section-title">Trailer</h2>
+    <div class="section-line"></div>
+    <div class="video-grid">
+        <div class="video-block">
+            <video controls poster="assets/images/BullBoss_bg.png">
+                <source src="assets/videos/trailer.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="video-info">
+                <h3>Official Trailer</h3>
+                <p class="placeholder">A brief description of what the trailer showcases.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Boss Divider -->
+<div class="boss-divider">
+    <img src="assets/images/BullBoss_bg.png" alt="Bull Boss" class="boss-bg-img">
+    <div class="content fade-in">
+        <h2>REDEEM THE FALLEN CONSTELLATIONS</h2>
+        <p>The constellations have lost their light and fallen from the sky. Harness the power of starlight to restore their radiance and return them to the heavens where they belong.</p>
+    </div>
+</div>
+
+<!-- About / Description -->
+<section id="about" class="fade-in">
+    <h2 class="section-title">About the Game</h2>
+    <div class="section-line"></div>
+    <div class="description-layout">
+        <div class="description-text">
+            <p>
+                OLLIM is a 2D side-scrolling Metroidvania game developed as a GAM250 class project at DigiPen Institute of Technology. The player takes on the role of a boy who once guarded the stars. Upon receiving a divine command to save the twelve zodiac constellations that have fallen to the earth, he sets off on an adventure across the surface world.
+            </p>
+            <p>
+                The game features a meticulously designed Metroidvania progression: defeating each boss grants new abilities that unlock exploration of the next area. Players wield a unique starlight-reflection mechanic, fighting fluidly without ever attacking directly, using reflected light to redeem each fallen constellation and restore it to the sky.
+            </p>
+
+            <h3 style="font-family:'Orbitron',sans-serif; font-size:1rem; letter-spacing:2px; margin: 2rem 0 1rem; color: var(--accent-glow);">HOW TO PLAY</h3>
+            <p>
+                Left-click to reflect starlight back at enemies. Observe and dodge incoming starlight attacks while staying aware of dangerous platforms beneath your feet. Each boss fight demands careful observation, precise timing, and mastery of the reflection mechanic to prevail.
+            </p>
+        </div>
+
+        <div class="description-sidebar">
+            <div class="character-showcase">
+                <img id="sidebar-sprite" class="sprite-large" src="assets/sprites/Player_idel1.png" alt="Player Character Idle Animation">
+                <h4>THE HERO</h4>
+                <p>A guardian of the stars, descending to the surface to redeem the fallen constellations.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Gameplay Videos -->
+<section id="gameplay" class="fade-in">
+    <h2 class="section-title">Gameplay</h2>
+    <div class="section-line"></div>
+    <div class="video-pair">
+        <div class="video-block">
+            <video controls>
+                <source src="assets/videos/movement.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="video-info">
+                <h3>Exploration &amp; Movement</h3>
+                <p class="placeholder">Navigate through environments, explore levels, and encounter enemies.</p>
+            </div>
+        </div>
+        <div class="video-block">
+            <video controls>
+                <source src="assets/videos/boss_fight.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="video-info">
+                <h3>Boss Battle</h3>
+                <p class="placeholder">Face off against the fearsome Bull Boss in an intense showdown.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Boss Spotlight -->
+<section id="boss" class="fade-in">
+    <h2 class="section-title">Boss Spotlight</h2>
+    <div class="section-line"></div>
+    <div class="boss-showcase">
+        <img src="assets/images/BullBoss_bg.png" alt="Taurus — A fallen constellation in the form of a raging bull">
+        <div class="boss-info">
+            <h3>TAURUS — THE BULL</h3>
+            <p>
+                Once a radiant constellation adorning the night sky, Taurus lost most of its starlight to a mysterious, unknown force and plummeted to the earth. Consumed by confusion and pain, it now lashes out at anything that draws near, unleashing volleys of residual starlight at the player.
+            </p>
+            <p>
+                To redeem Taurus, the player must reflect its own starlight back, gradually restoring the brilliance it has lost and guiding this fallen constellation back to the heavens.
+            </p>
+        </div>
+    </div>
+    <div class="boss-animations">
+        <div class="boss-anim-card">
+            <img id="boss-roar" src="assets/bull_roar/frame_000.png" alt="Taurus Roar Animation">
+            <h4>ROAR</h4>
+        </div>
+        <div class="boss-anim-card">
+            <img id="boss-charge-ready" src="assets/bull_charge_ready/frame_000.png" alt="Taurus Charge Ready Animation">
+            <h4>CHARGE READY</h4>
+        </div>
+        <div class="boss-anim-card">
+            <img id="boss-charge" src="assets/bull_charge/frame_000.png" alt="Taurus Charge Animation">
+            <h4>CHARGE</h4>
+        </div>
+    </div>
+</section>
+
+<!-- Team -->
+<section id="team" class="fade-in">
+    <h2 class="section-title">The Team</h2>
+    <div class="section-line"></div>
+    <p style="color: var(--text-secondary); margin-bottom: 2rem; font-size: 1.05rem;">
+        We are Team ASTAR, a group of student developers at DigiPen Institute of Technology, passionate about creating engaging gameplay experiences. OLLIM is our GAM250 project.
+    </p>
+    <div class="team-grid">
+        <div class="team-card">
+            <div class="role">Producer</div>
+            <div class="name">Jeonghun Byeon</div>
+        </div>
+        <div class="team-card">
+            <div class="role">Art Lead</div>
+            <div class="name">Sanghyuk Kim</div>
+        </div>
+        <div class="team-card">
+            <div class="role">Tech Lead</div>
+            <div class="name">Sungwoo Yang</div>
+        </div>
+        <div class="team-card">
+            <div class="role">QA</div>
+            <div class="name">Seokwon Jung</div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA / Press Contact -->
+<section id="download" class="cta-section fade-in">
+    <div id="bonfire" class="cta-bonfire" role="img" aria-label="Bonfire — click to light"></div>
+    <p class="cta-bonfire-hint" id="bonfire-hint">Click to light the bonfire</p>
+    <h2>This Is Not Your Typical Action Game</h2>
+    <p>
+        In OLLIM, you never attack. Instead, you reflect starlight — turning every enemy's power against them in a combat system unlike anything you have played before. Built from the ground up on a custom OpenGL engine, OLLIM fuses Metroidvania exploration with intense boss rush encounters where survival depends on observation, timing, and reflexes rather than brute force. If you are looking for a fresh take on 2D action that challenges the conventions of the genre, OLLIM is the story worth telling.
+    </p>
+    <div class="cta-buttons">
+        <a href="mailto:byeonjeonghun93@gmail.com" class="btn btn-primary">Get in Touch</a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="footer-logos">
+        <img src="assets/images/TeamLogo.png" alt="Team ASTAR Logo" class="footer-logo">
+        <img src="assets/images/DigipenLogo.png" alt="DigiPen Institute of Technology" class="footer-logo digipen-logo">
+    </div>
+    <p>&copy; 2026 Team ASTAR &mdash; DigiPen Institute of Technology</p>
+    <p style="margin-top:0.5rem;">GAM250 Press Kit</p>
+</footer>
+
+<script>
+// ── Starfield Generator ──
+(function() {
+    const field = document.getElementById('starfield');
+    const count = 120;
+    for (let i = 0; i < count; i++) {
+        const star = document.createElement('div');
+        star.className = 'star';
+        const size = Math.random() * 2.5 + 0.5;
+        star.style.width = size + 'px';
+        star.style.height = size + 'px';
+        star.style.left = Math.random() * 100 + '%';
+        star.style.top = Math.random() * 100 + '%';
+        star.style.setProperty('--duration', (Math.random() * 4 + 2) + 's');
+        star.style.setProperty('--max-opacity', (Math.random() * 0.6 + 0.2));
+        star.style.animationDelay = (Math.random() * 4) + 's';
+        field.appendChild(star);
+    }
+})();
+
+// ── Sprite Animation ──
+(function() {
+    const frameCount = 16;
+    const frameDuration = 120; // ms per frame
+    const frames = [];
+
+    for (let i = 1; i <= frameCount; i++) {
+        const img = new Image();
+        img.src = 'assets/sprites/Player_idel' + i + '.png';
+        frames.push(img);
+    }
+
+    let currentFrame = 0;
+    const heroSprite = document.getElementById('hero-sprite');
+    const sidebarSprite = document.getElementById('sidebar-sprite');
+
+    setInterval(function() {
+        currentFrame = (currentFrame + 1) % frameCount;
+        const src = frames[currentFrame].src;
+        if (heroSprite) heroSprite.src = src;
+        if (sidebarSprite) sidebarSprite.src = src;
+    }, frameDuration);
+})();
+
+// ── Boss Sprite Animations ──
+(function() {
+    var bossAnims = [
+        { id: 'boss-roar', folder: 'assets/bull_roar', count: 25 },
+        { id: 'boss-charge-ready', folder: 'assets/bull_charge_ready', count: 16 },
+        { id: 'boss-charge', folder: 'assets/bull_charge', count: 25 }
+    ];
+
+    bossAnims.forEach(function(anim) {
+        var frames = [];
+        for (var i = 0; i < anim.count; i++) {
+            var img = new Image();
+            img.src = anim.folder + '/frame_' + String(i).padStart(3, '0') + '.png';
+            frames.push(img);
+        }
+        var current = 0;
+        var el = document.getElementById(anim.id);
+        setInterval(function() {
+            current = (current + 1) % anim.count;
+            if (el) el.src = frames[current].src;
+        }, 100);
+    });
+})();
+
+// ── Bonfire Click Animation ──
+(function() {
+    var bonfire = document.getElementById('bonfire');
+    var hint = document.getElementById('bonfire-hint');
+    if (bonfire) {
+        bonfire.addEventListener('click', function() {
+            bonfire.classList.remove('playing');
+            void bonfire.offsetWidth;
+            bonfire.classList.add('playing');
+            if (hint) hint.style.opacity = '0';
+        });
+    }
+})();
+
+// ── Scroll Reveal ──
+(function() {
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(function(el) {
+        observer.observe(el);
+    });
+})();
+</script>
+
 </body>
 </html>

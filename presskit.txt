@@ -1,0 +1,99 @@
+================================================================================
+                         OLLIM — OFFICIAL PRESS KIT
+                              by Team ASTAR
+================================================================================
+
+
+QUICK FACTS
+--------------------------------------------------------------------------------
+Game Title:     OLLIM
+Genre:          2D Action / Platformer / Metroidvania / Boss Rush
+Developer:      Team ASTAR — DigiPen Institute of Technology
+Engine:         Custom Engine / OpenGL
+Contact:        byeonjeonghun93@gmail.com
+
+
+ELEVATOR PITCH
+--------------------------------------------------------------------------------
+Raise the fallen constellations back to the sky with the power of starlight.
+
+
+FEATURES
+--------------------------------------------------------------------------------
+- Combat without attacking — survive, dodge, and outmaneuver your foes
+- Fast-paced boss rush encounters that demand precision and quick reflexes
+- Original soundtrack composed to match every moment of the journey
+
+
+ABOUT THE GAME
+--------------------------------------------------------------------------------
+OLLIM is a 2D side-scrolling Metroidvania game developed as a GAM250 class
+project at DigiPen Institute of Technology. The player takes on the role of a
+boy who once guarded the stars. Upon receiving a divine command to save the
+twelve zodiac constellations that have fallen to the earth, he sets off on an
+adventure across the surface world.
+
+The game features a meticulously designed Metroidvania progression: defeating
+each boss grants new abilities that unlock exploration of the next area. Players
+wield a unique starlight-reflection mechanic, fighting fluidly without ever
+attacking directly, using reflected light to redeem each fallen constellation
+and restore it to the sky.
+
+
+HOW TO PLAY
+--------------------------------------------------------------------------------
+Left-click to reflect starlight back at enemies. Observe and dodge incoming
+starlight attacks while staying aware of dangerous platforms beneath your feet.
+Each boss fight demands careful observation, precise timing, and mastery of the
+reflection mechanic to prevail.
+
+Controls:
+  - Movement:    A (left), D (right)
+  - Jump:        W or Space
+  - Dash:        Left Shift
+  - Interact:    F (read signboards, activate campfires, etc.)
+  - Reflect:     Left Mouse Click (reflect starlight with shield)
+  - Shield:      Hold Right Mouse Click (create shield at cursor position)
+
+
+BOSS SPOTLIGHT — TAURUS, THE BULL
+--------------------------------------------------------------------------------
+Once a radiant constellation adorning the night sky, Taurus lost most of its
+starlight to a mysterious, unknown force and plummeted to the earth. Consumed
+by confusion and pain, it now lashes out at anything that draws near, unleashing
+volleys of residual starlight at the player.
+
+To redeem Taurus, the player must reflect its own starlight back, gradually
+restoring the brilliance it has lost and guiding this fallen constellation back
+to the heavens.
+
+
+THE TEAM
+--------------------------------------------------------------------------------
+We are Team ASTAR, a group of student developers at DigiPen Institute of
+Technology, passionate about creating engaging gameplay experiences. OLLIM is
+our GAM250 project.
+
+  Jeonghun Byeon     — Producer
+  Sanghyuk Kim       — Art Lead
+  Sungwoo Yang       — Tech Lead
+  Seokwon Jung       — QA
+
+
+THIS IS NOT YOUR TYPICAL ACTION GAME
+--------------------------------------------------------------------------------
+In OLLIM, you never attack. Instead, you reflect starlight — turning every
+enemy's power against them in a combat system unlike anything you have played
+before. Built from the ground up on a custom OpenGL engine, OLLIM fuses
+Metroidvania exploration with intense boss rush encounters where survival
+depends on observation, timing, and reflexes rather than brute force. If you
+are looking for a fresh take on 2D action that challenges the conventions of
+the genre, OLLIM is the story worth telling.
+
+Contact: byeonjeonghun93@gmail.com
+
+
+================================================================================
+           (C) 2026 Team ASTAR — DigiPen Institute of Technology
+                            GAM250 Press Kit
+================================================================================
