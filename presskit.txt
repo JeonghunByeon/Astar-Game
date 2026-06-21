@@ -10,6 +10,7 @@ Game Title:     OLLIM
 Genre:          2D Action / Platformer / Metroidvania / Boss Rush
 Developer:      Team ASTAR — DigiPen Institute of Technology
 Engine:         Custom Engine / OpenGL
+Website:        https://jeonghunbyeon.github.io/Astar-Game/
 Contact:        byeonjeonghun93@gmail.com
 
 
